@@ -1,0 +1,119 @@
+.reviews-list {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: sectionAppear 0.8s ease;
+}
+
+@keyframes sectionAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reviews-list h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 50px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.reviews-list h2:hover {
+  transform: scale(1.02);
+  color: #667eea;
+}
+
+.reviews-list h2::before {
+  content: '✨';
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.reviews-list h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  margin: 20px auto;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  background-size: 200% 100%;
+}
+
+.reviews-list h2:hover::before {
+  opacity: 1;
+  left: -30px;
+  transform: translateY(-50%) rotate(20deg);
+}
+
+.reviews-list h2:hover::after {
+  width: 150px;
+  background-position: 100% 0;
+}
+
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  padding: 30px 0;
+  width: 100%;
+}
+
+/* Эффект для контейнера при наведении на карточки */
+.reviews-container:has(.review-card:hover) .review-card:not(:hover) {
+  opacity: 0.7;
+  filter: blur(1px);
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .reviews-list {
+    padding: 20px;
+  }
+  
+  .reviews-list h2 {
+    font-size: 2em;
+  }
+  
+  .reviews-list h2::before {
+    display: none;
+  }
+  
+  .reviews-container {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews-list h2 {
+    font-size: 1.8em;
+  }
+  
+  .reviews-list h2::after {
+    width: 80px;
+  }
+  
+  .reviews-container {
+    gap: 20px;
+  }
+}
