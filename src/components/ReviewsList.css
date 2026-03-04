@@ -79,7 +79,7 @@
   width: 100%;
 }
 
-/* Эффект для контейнера при наведении на карточки */
+
 .reviews-container:has(.review-card:hover) .review-card:not(:hover) {
   opacity: 0.7;
   filter: blur(1px);
